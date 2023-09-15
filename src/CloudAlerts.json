@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://alerts.xignite.com/"
+      "url": "https://alerts.xignite.com"
     }
   ],
   "paths": {

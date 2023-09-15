@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://globalcurrencies.xignite.com/"
+      "url": "https://globalcurrencies.xignite.com"
     }
   ],
   "paths": {

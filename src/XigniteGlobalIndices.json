@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://globalindices.xignite.com/"
+      "url": "https://globalindices.xignite.com"
     }
   ],
   "paths": {

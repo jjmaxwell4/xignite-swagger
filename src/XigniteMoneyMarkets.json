@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://moneymarkets.xignite.com/"
+      "url": "https://moneymarkets.xignite.com"
     }
   ],
   "paths": {

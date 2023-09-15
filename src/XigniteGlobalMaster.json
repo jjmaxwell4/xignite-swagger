@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://globalmaster.xignite.com/"
+      "url": "https://globalmaster.xignite.com"
     }
   ],
   "paths": {

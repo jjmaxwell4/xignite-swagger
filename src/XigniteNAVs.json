@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://navs.xignite.com/"
+      "url": "https://navs.xignite.com"
     }
   ],
   "paths": {

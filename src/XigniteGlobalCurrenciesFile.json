@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://cloudfiles.xignite.com/"
+      "url": "https://cloudfiles.xignite.com"
     }
   ],
   "paths": {

@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://nasdaqlastsale.xignite.com/"
+      "url": "https://nasdaqlastsale.xignite.com"
     }
   ],
   "paths": {
