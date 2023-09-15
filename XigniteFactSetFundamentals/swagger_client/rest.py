@@ -200,7 +200,7 @@ class RESTClientObject(object):
                     msg = """Cannot prepare a request message for provided
                              arguments. Please check that your arguments match
                              declared content type."""
-                    raise ApiException(status=0, reason=msg)
+                    raise ApiException(status=0, reason=msg, url=url)
             # For `GET`, `HEAD`
             else:
                 r = self.pool_manager.request(method, url,
@@ -210,7 +210,7 @@ class RESTClientObject(object):
                                               headers=headers)
         except urllib3.exceptions.SSLError as e:
             msg = "{0}\n{1}".format(type(e).__name__, str(e))
-            raise ApiException(status=0, reason=msg)
+            raise ApiException(status=0, reason=msg, url=url)
 
         if _preload_content:
             r = RESTResponse(r)
@@ -219,7 +219,7 @@ class RESTClientObject(object):
             logger.debug("response body: %s", r.data)
 
         if not 200 <= r.status <= 299:
-            raise ApiException(http_resp=r)
+            raise ApiException(http_resp=r, url=url)
 
         return r
 
@@ -291,13 +291,15 @@ class RESTClientObject(object):
 
 class ApiException(Exception):
 
-    def __init__(self, status=None, reason=None, http_resp=None):
+    def __init__(self, status=None, reason=None, http_resp=None, url=None):
         if http_resp:
+            self.url = url
             self.status = http_resp.status
             self.reason = http_resp.reason
             self.body = http_resp.data
             self.headers = http_resp.getheaders()
         else:
+            self.url = url
             self.status = status
             self.reason = reason
             self.body = None
@@ -306,7 +308,8 @@ class ApiException(Exception):
     def __str__(self):
         """Custom error messages for exception"""
         error_message = "({0})\n"\
-                        "Reason: {1}\n".format(self.status, self.reason)
+                        "Reason: {1}"\
+                        "URL: {2}\n".format(self.status, self.reason, self.url)
         if self.headers:
             error_message += "HTTP response headers: {0}\n".format(
                 self.headers)
